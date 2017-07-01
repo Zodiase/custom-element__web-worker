@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="./lib/webworker/web-worker-components.js"></script>
+  <web-worker id="worker" src="worker-timer.js"></web-worker>
+</head>
+<body>
+
+  <h1>Timer Worker Demo</h1>
+
+  <p>Time from worker: <span id="time"></span></p>
+
+  <script>
+    worker.onmessage = (e) => {
+      time.innerText = String(new Date(e.data));
+    };
+  </script>
+
+</body>
+</html>

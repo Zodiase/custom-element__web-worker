@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="./lib/webworker/web-worker-components.js"></script>
+  <web-worker id="worker" src="worker-echo.js"></web-worker>
+</head>
+<body>
+
+  <h1>Echo Worker Demo</h1>
+
+  <fieldset>
+    <legend>Inputs</legend>
+    <input id="text" type="text" />
+    <button type="button" onclick="if (text.value.length > 0) {worker.postMessage(text.value);text.value = null;}text.focus();">Send</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>Worker Messages</legend>
+    <ul id="messages">
+    </ul>
+  </fieldset>
+
+  <script>
+    worker.onmessage = (e) => {
+      console.log("Message received from worker", e.data);
+
+      var newElement = document.createElement("li");
+      newElement.innerText = e.data;
+
+      messages.appendChild(newElement);
+    };
+  </script>
+
+</body>
+</html>

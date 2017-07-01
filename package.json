@@ -1,6 +1,6 @@
 {
   "name": "web-worker-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Custom elements for running Web Workers.",
   "repository": {
     "type": "git",
@@ -8,6 +8,8 @@
   },
   "main": "src/index.js",
   "scripts": {
+    "prepack": "npm run clean && npm install && npm run build:dist",
+    "clean": "git clean -fdx",
     "build": "npm run build:dist",
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:dist": "webpack --env=prod --progress --profile --colors",

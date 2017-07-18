@@ -1,5 +1,7 @@
 # Web Worker Components
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Zodiase/web-worker-components.svg)](https://greenkeeper.io/)
+
 Custom elements for running Web Workers.
 
 See `Developer.md` for implementation decisions and details.
